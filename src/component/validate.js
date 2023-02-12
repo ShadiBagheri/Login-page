@@ -38,5 +38,6 @@ export const validate = (data, type) => {
             errors.isAccepted = "Accept our regulations"
         }
 
+
     return errors;
 }
