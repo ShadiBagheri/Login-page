@@ -13,22 +13,17 @@ const Login = () => {
         email: "",
         password: "",
     })
-
     const [errors, setErrors] = useState({});
     const [touched, setTouched] = useState({});
-
     useEffect(() => {
         setErrors(validate(data,"login"));
     },[data, touched]);
-
     const changeHandler = event => {
             setData({ ...data, [event.target.name]: event.target.value })
     }
-
     const focusHandler = event => {
         setTouched({...touched, [event.target.name]: true})
     }
-
     const submitHandler = event => {
         event.preventDefault();
         if (!Object.keys(errors).length){
@@ -41,7 +36,6 @@ const Login = () => {
             })
         }
     }
-
     return (
         <div className={styles.container}>
             <form onSubmit={submitHandler} className={styles.formContainer}>
@@ -66,7 +60,6 @@ const Login = () => {
                            onFocus={focusHandler}/>
                     {errors.password && touched.password && <span>{errors.password}</span>}
                 </div>
-
                 <div className={styles.formButtons}>
                     <Link to="/SignUp">Sign Up</Link>
                     <button type="submit">Login</button>

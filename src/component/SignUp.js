@@ -1,12 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import {validate} from "./validate";
 import styles from "./SignUp.module.css";
-
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import {notify} from "./Toast";
 import {Link} from "react-router-dom";
-
 
 const SignUp = () => {
     const [data, setData] = useState({
@@ -16,14 +14,11 @@ const SignUp = () => {
         confirmPassword: "",
         isAccepted: false
     })
-
     const [errors, setErrors] = useState({});
     const [touched, setTouched] = useState({});
-
     useEffect(() => {
         setErrors(validate(data,"signup"));
     },[data, touched]);
-
     const changeHandler = event => {
         if (event.target.name === "isAccepted") {
             setData({ ...data, [event.target.name]: event.target.checked })
@@ -31,11 +26,9 @@ const SignUp = () => {
             setData({ ...data, [event.target.name]: event.target.value })
         }
     }
-
     const focusHandler = event => {
         setTouched({...touched, [event.target.name]: true})
     }
-
     const submitHandler = event => {
         event.preventDefault();
         if (!Object.keys(errors).length){
@@ -51,7 +44,6 @@ const SignUp = () => {
             })
         }
     }
-
     return (
         <div className={styles.container}>
             <form onSubmit={submitHandler} className={styles.formContainer}>

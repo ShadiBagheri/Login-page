@@ -1,10 +1,7 @@
 import React from 'react';
 import {Route, Routes, Navigate} from "react-router-dom";
-
 import SignUp from "./component/SignUp";
 import Login from "./component/Login";
-
-
 
 const App = () => {
     return (
@@ -14,7 +11,6 @@ const App = () => {
                       <Route path="/signup" element={<SignUp/>}/>
                       <Route path="/" element={<Navigate to="/signup"/>}/>
                   </Routes>
-
               </div>
     );
 };
